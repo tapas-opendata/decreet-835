@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "uk"
+    }
+  ],
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "identifier",
+        "titles": "№ з/п",
+        "dc:description": "Номер загального порядку або будь-який інший унікальний ідентифікатор.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "prefLabel",
+        "titles": "Назва посади",
+        "dc:description": "Найменування посади (професії) в організаційній структурі розпорядника. Наприклад: Головний спеціаліст.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "postIn",
+        "titles": "Назва структурного підрозділу",
+        "dc:description": "Повна назва структурного підрозділу, до якого належить посада (професія). Наприклад: Департамент стратегічного розвитку та інтеграції.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "titles": "Кількість штатних одиниць",
+        "dc:description": "Загальна кількість штатних одиниць. Наприклад: 4.",
+        "datatype": "integer",
+        "required": true
+      }
+    ],
+    "primaryKey": "identifier"
+  }
+}
