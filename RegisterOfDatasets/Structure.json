@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "uk"
+    }
+  ],
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "name",
+        "titles": "title",
+        "dc:description": "description",
+        "datatype": "datatype",
+        "required": "required"
+      },
+      {
+        "name": "identifier",
+        "titles": "Ідентифікатор",
+        "dc:description": "Ідентифікаційний номер набору даних. Наприклад: amk-dovidnyk. Якщо розпорядник не присвоїв ідентифікаторів перед завантаженням, їх можна скопіювати з паспортів наборів на порталі.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "title",
+        "titles": "Назва",
+        "dc:description": "Назва набору даних. Наприклад: Інформація про організаційну структуру Антимонопольного комітету України.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "titles": "Опис",
+        "dc:description": "Опис набору даних. Наприклад: Набір містить інформацію про організаційну структуру розпорядника відповідно до організаційно-розпорядчого документа “Структура і штатна чисельність”.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "accrualPeriodicity",
+        "titles": "Частота оновлення",
+        "dc:description": "Частота оновлення може мати одне зі значень: Більш як один раз на день, Щодня, Щотижня, Щомісяця, Щокварталу, Кожного півріччя, Щороку, Відразу після внесення змін. Наприклад: Щотижня.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "keyword",
+        "titles": "Ключові слова",
+        "dc:description": "Ключові слова, що описують зміст даних в наборі. Слова необхідно відділити знаком кома. Наприклад: структура, посади, підрозділи, штат, підрозділ, організаційна структура.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "purpose",
+        "titles": "Підстава та призначення збору інформації",
+        "dc:description": "Перелік нормативно-правових актів, що визначають підставу та призначення збору інформації. Назви мають включати основні реквізити, що необхідні для пошуку документів.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "landingPage",
+        "titles": "Посилання на сторінку набору даних",
+        "dc:description": "Посилання на сторінку набору на порталі відкритих даних. Посилання має починатися з https://. Наприклад: https://data.gov.ua/dataset/amk-zvity.",
+        "datatype": "anyURI",
+        "required": true
+      },
+      {
+        "name": "distributionFormat",
+        "titles": "Формати ресурсів",
+        "dc:description": "Перелік форматів, у яких доступні ресурси набору. Назви форматів записуються великими латинськими літерами. У випадку кількох форматів відділити значення комами.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "publisherPrefLabel",
+        "titles": "Назва розпорядника",
+        "dc:description": "Повна назва розпорядника набору даних. Наприклад: Міністерство охорони здоров’я України.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "publisherIdentifier",
+        "titles": "Ідентифікатор розпорядника",
+        "dc:description": "Якщо розпорядник є юридичною особою, вказати його код ЄДРПОУ. Наприклад: 01234567. У іншому випадку зазначити null.",
+        "datatype": "string",
+        "required": false
+      },
+      {
+        "name": "contactPointFn",
+        "titles": "Відповідальна особа",
+        "dc:description": "Прізвище, ім’я, по батькові відповідальної особи. Наприклад: Симоненко Олена Петрівна.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "contactPointHasEmail",
+        "titles": "Email відповідальної особи",
+        "dc:description": "Адреса електронної пошти відповідально особи. Наприклад: contact@example.gov.ua.",
+        "datatype": "string",
+        "required": true
+      }
+    ],
+    "primaryKey": "identifier"
+  }
+}
