@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "uk"
+    }
+  ],
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "identifier",
+        "titles": "Ідентифікатор",
+        "dc:description": "Номер або інший унікальний ідентифікатор звіту. Наприклад, z-2018-01.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "title",
+        "titles": "Назва",
+        "dc:description": "Повна назва звіту. Наприклад: Звіт про виконання плану роботи за I півріччя 2018 року.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "dateAccepted",
+        "titles": "Дата затвердження",
+        "dc:description": "Дата затвердження звіту видовником у форматі ISO 8601 (рррр-мм-дд). Наприклад: 2018-07-06. Якщо затвердження не передбачене, вказати null.",
+        "datatype": "date",
+        "required": false
+      },
+      {
+        "name": "issued",
+        "titles": "Дата оприлюднення",
+        "dc:description": "Дата оприлюднення звіту в форматі ISO 8601 (рррр-мм-дд). Наприклад: 2018-07-06.",
+        "datatype": "date",
+        "required": true
+      },
+      {
+        "name": "type",
+        "titles": "Тип",
+        "dc:description": "Типи звітів визначають розпорядники відповідно до повноважень, зокрема, звіти керівників, звіти про діяльність, звіти щодо задоволення запитів на інформацію, інше. Наприклад: звіти про діяльність.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "url",
+        "titles": "Посилання",
+        "dc:description": "Посилання на звіт, оприлюднений в мережі Інтернет (URL). Посилання має починатися з http:// або https://. Наприклад: https://www.example.gov.ua/example/.",
+        "datatype": "anyURI",
+        "required": true
+      },
+      {
+        "name": "creatorName",
+        "titles": "Назва/Ім’я автора",
+        "dc:description": "Прізвище, ім’я, по батькові посадової особи, назва структурного підрозділу або органу, що відповідальні за підготовку звіту. Наприклад: Департамент інформатизації.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "publisherName",
+        "titles": "Назва видавника",
+        "dc:description": "Повна назва видавника звіту. Наприклад: Міністерство охорони здоров’я України.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "publisherIdentifier",
+        "titles": "Ідентифікатор видавника",
+        "dc:description": "Якщо видавник є юридичною особою, вказати його код ЄДРПОУ. Наприклад: 01234567. У іншому випадку зазначити null.",
+        "datatype": "string",
+        "required": false
+      }
+    ],
+    "primaryKey": "identifier"
+  }
+}
