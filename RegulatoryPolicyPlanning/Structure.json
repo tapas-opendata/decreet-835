@@ -96,7 +96,7 @@
         "titles": "Дата внесення на розгляд",
         "dc:description": "Дата внесення проекту регуляторного органу на розгляд у форматі ISO 8601 (рррр-мм-дд). Наприклад: 2018-10-05.",
         "datatype": "date",
-        "required": false
+        "required": true
       },
       {
         "name": "regulatoryAgencyPrefLabel",
