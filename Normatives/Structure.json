@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "uk"
+    }
+  ],
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "identifier",
+        "titles": "Ідентифікатор",
+        "dc:description": "Ідентифікатором нормативу є номер нормативно-правового акта (НПА), яким був ухвалений норматив, та рік його прийняття, що розділені знаком дефіс. Наприклад, 123-2014. Розпорядники також можуть використовувати власні види ідентифікаторів.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "title",
+        "titles": "Назва",
+        "dc:description": "Повна назва нормативів. Наприклад: Типові штатні нормативи дошкільних навчальних закладів.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "validFrom",
+        "titles": "Дійсний з",
+        "dc:description": "Дата, з якої дійсний норматив, у форматі ISO 8601 (рррр-мм-дд). Наприклад: 2010-11-14.",
+        "datatype": "date",
+        "required": true
+      },
+      {
+        "name": "validThrough",
+        "titles": "Дійсний до",
+        "dc:description": "Дата, до якої дійсний норматив, у форматі ISO 8601 (рррр-мм-дд). Наприклад: 2030-11-14. Якщо дата не встановлена, вказати null.",
+        "datatype": "date",
+        "required": false
+      },
+      {
+        "name": "url",
+        "titles": "Посилання",
+        "dc:description": "Посилання на оприлюднений норматив у мережі Інтернет. Посилання має починатися з http:// або https://. Наприклад: https://www.example.gov.ua/example.doc.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "legalActIdentifier",
+        "titles": "Ідентифікатор НПА",
+        "dc:description": "Ідентифікатор НПА, яким ухвалено норматив. Ідентифікатор береться набору “Нормативно-правові акти, акти індивідуальної дії, прийняті розпорядником” (ресурс LegalActs колонка identifier). Наприклад: 456-2017.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "legalActType",
+        "titles": "Вид НПА",
+        "dc:description": "Вид НПА. Наприклад: Наказ.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "legalActTitle",
+        "titles": "Назва НПА",
+        "dc:description": "Назва НПА. Наприклад: Про затвердження Типових штатних нормативів дошкільних навчальних закладів.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "legalActDateAccepted",
+        "titles": "Дата ухвалення НПА",
+        "dc:description": "Дата ухвалення НПА у форматі ISO 8601 (рррр-мм-дд). Наприклад: 2018-07-06.",
+        "datatype": "date",
+        "required": true
+      },
+      {
+        "name": "legalActNumber",
+        "titles": "Номер",
+        "dc:description": "Номер НПА. Наприклад: 1234-р.",
+        "datatype": "string",
+        "required": false
+      },
+      {
+        "name": "publisherName",
+        "titles": "Назва видавника",
+        "dc:description": "Повна назва видавника НПА, яким затверджено норматив. Наприклад: Міністерство охорони здоров’я України.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "publisherIdentifier",
+        "titles": "Ідентифікатор видавника",
+        "dc:description": "Якщо видавник є юридичною особою, вказати його код ЄДРПОУ. Наприклад: 01234567. У іншому випадку зазначити null.",
+        "datatype": "string",
+        "required": false
+      }
+    ],
+    "primaryKey": "identifier"
+  }
+}

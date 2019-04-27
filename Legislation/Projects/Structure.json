@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "uk"
+    }
+  ],
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "identifier",
+        "titles": "Ідентифікатор",
+        "dc:description": "Ідентифікатором проекту нормативно-правового акта може бути порядковий номер або будь-яка інша унікальна комбінація символів. Наприклад: p-2019-056.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "type",
+        "titles": "Тип",
+        "dc:description": "Залежно від повноважень розпорядника вид НПА може мати одне зі значень: закон, постанова, указ, розпорядження, декрет, рішення, наказ. Наприклад: постанова. Розпорядники мають скласти перелік видів НПА відповідно до повноважень.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "title",
+        "titles": "Назва",
+        "dc:description": "Назва (заголовок) нормативно-правового акта. Наприклад: Про питання споживання природного газу.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "registrationDate",
+        "titles": "Дата реєстрації",
+        "dc:description": "Дата реєстрації проекту в форматі ISO 8601 (рррр-мм-дд). Якщо реєстрація не передбачена, вказати null.",
+        "datatype": "string",
+        "required": false
+      },
+      {
+        "name": "issued",
+        "titles": "Дата оприлюднення",
+        "dc:description": "Дата оприлюднення проекту в форматі ISO 8601 (рррр-мм-дд). Наприклад: 2018-07-06.",
+        "datatype": "date",
+        "required": false
+      },
+      {
+        "name": "url",
+        "titles": "Посилання на проект",
+        "dc:description": "Посилання в мережі Інтернет (URL) на перегляд документа. Посилання має починатися з http:// або https://. Наприклад: https://www.example.gov.ua/example/.",
+        "datatype": "anyURI",
+        "required": true
+      },
+      {
+        "name": "creatorName",
+        "titles": "Ім’я/назва суб’єкта подання",
+        "dc:description": "Прізвище ім’я по батькові або назва суб’єкта, що подає проект. Наприклад: Міністерство охорони здоров’я України. Якщо суб'єктів декілька, розділити значення символом крапка з комою.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "creatorIdentifier",
+        "titles": "Ідентифікатор суб’єкта подання",
+        "dc:description": "Якщо суб’єкт подання є юридичною особою, вказати його код ЄДРПОУ. Наприклад: 01234567. У іншому випадку зазначити null.",
+        "datatype": "string",
+        "required": false
+      },
+      {
+        "name": "publisherName",
+        "titles": "Назва видавника",
+        "dc:description": "Повна назва суб’єкта нормотворення, що має розглянути проект. Наприклад: Міністерство охорони здоров’я України.",
+        "datatype": "string",
+        "required": true
+      },
+      {
+        "name": "publisherIdentifier",
+        "titles": "Ідентифікатор видавника",
+        "dc:description": "Якщо суб’єкт нормотворення, є юридичною особою, вказати його код ЄДРПОУ. Наприклад: 01234567. У іншому випадку зазначити null.",
+        "datatype": "string",
+        "required": false
+      },
+      {
+        "name": "note",
+        "titles": "Пояснювальна записка",
+        "dc:description": "Посилання в мережі Інтернет (URL) на пояснювальну записку до проекту. Посилання має починатися з http:// або https://. Наприклад: https://www.example.gov.ua/example/.\nЯкщо пояснювальна записка відсутня, вказати null.",
+        "datatype": "anyURI",
+        "required": false
+      },
+      {
+        "name": "comparisonTable",
+        "titles": "Порівняльна таблиця",
+        "dc:description": "Посилання в мережі Інтернет (URL) на порівняльну таблицю. Посилання має починатися з http:// або https://. Наприклад: https://www.example.gov.ua/example/. Якщо порівняльна таблиця відсутня, вказати null.",
+        "datatype": "anyURI",
+        "required": false
+      },
+      {
+        "name": "regulatoryImpactAnalysis",
+        "titles": "Аналіз регуляторного впливу",
+        "dc:description": "Посилання в мережі Інтернет (URL) на аналіз регуляторного впливу. Посилання має починатися з http:// або https://. Наприклад: https://www.example.gov.ua/example/. Якщо аналіз регуляторного впливу не передбачений, вказати null.",
+        "datatype": "anyURI",
+        "required": false
+      }
+    ],
+    "primaryKey": "identifier"
+  }
+}
