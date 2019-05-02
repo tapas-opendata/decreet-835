@@ -1,0 +1,3085 @@
+<!--<h1>Перевикористання стандартів (для розробників)</h1>
+url: https://data.gov.ua/pages/835-rec-standards-reusage -->
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">1. Довідник підприємств, установ (закладів) та організацій розпорядника інформації та підпорядкованих йому організацій, у тому числі їх ідентифікаційних кодів, офіційних веб-сайтів, адрес електронної пошти, телефонів та адрес</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="https://joinup.ec.europa.eu/release/core-public-organisation-vocabulary-v100">Core Public Organisation Vocabulary</a>, <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, <a href="http://xmlns.com/foaf/spec/">FOAF</a>, <a href="https://schema.org/">Schema</a>, <a href="https://www.w3.org/TR/swbp-skos-core-spec/">SKOS</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 1 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Core Vocabularies
+   </td>
+   <td>cv
+   </td>
+   <td><a href="http://data.europa.eu/m8g/">http://data.europa.eu/m8g/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 2 — Прив’язка моделі даних ресурсу Organizations до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicOrganization</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>cv:PublicOrganization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td>altLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:altLabel
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:description
+   </td>
+  </tr>
+  <tr>
+   <td>homepage
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:homepage
+   </td>
+  </tr>
+  <tr>
+   <td>logo
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:logo
+   </td>
+  </tr>
+  <tr>
+   <td>subOrganizationOf 
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:subOrganizationOf 
+   </td>
+  </tr>
+  <tr>
+   <td>address
+   </td>
+   <td>Асоціація
+   </td>
+   <td>locn:address
+   </td>
+  </tr>
+  <tr>
+   <td>contactPoint
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:contactPoint
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Address</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>locn:address</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>adminUnitL1
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:adminUnitL1
+   </td>
+  </tr>
+  <tr>
+   <td>adminUnitL2
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:adminUnitL2
+   </td>
+  </tr>
+  <tr>
+   <td>adminUnitL3
+   </td>
+   <td>Властивість
+   </td>
+   <td>Відсутня
+   </td>
+  </tr>
+  <tr>
+   <td>postName
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:postName
+   </td>
+  </tr>
+  <tr>
+   <td>thoroughfare
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:thoroughfare
+   </td>
+  </tr>
+  <tr>
+   <td>locatorDesignator
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:locatorDesignator
+   </td>
+  </tr>
+  <tr>
+   <td>locatorName
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:locatorName
+   </td>
+  </tr>
+  <tr>
+   <td>postCode
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:postCode
+   </td>
+  </tr>
+  <tr>
+   <td>poBox
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:poBox
+   </td>
+  </tr>
+  <tr>
+   <td><strong>ContactPoint</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:ContactPoint</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:name
+   </td>
+  </tr>
+  <tr>
+   <td>hasEmail
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:email
+   </td>
+  </tr>
+  <tr>
+   <td>hasTelephone
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:telephone
+   </td>
+  </tr>
+  <tr>
+   <td>openingHours
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:openingHours
+   </td>
+  </tr>
+  <tr>
+   <td>availabilityRestriction
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:hoursAvailable
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OpeningHoursSpecification</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:OpeningHoursSpecification</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:description
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OnlineAccount</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:OnlineAccount</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>page
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:page
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Head</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td>headOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:headOf
+   </td>
+  </tr>
+  <tr>
+   <td>holds
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:holds
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Post</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>СonstituentDocument</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>references
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:references
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 3 — Прив’язка моделі даних ресурсу OrganizationalUnits до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OrganizationalUnit</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:OrganizationalUnit</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td>altLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:altLabel
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:description
+   </td>
+  </tr>
+  <tr>
+   <td>homepage
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:homepage
+   </td>
+  </tr>
+  <tr>
+   <td>unitOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:unitOf
+   </td>
+  </tr>
+  <tr>
+   <td>address
+   </td>
+   <td>Асоціація
+   </td>
+   <td>locn:address
+   </td>
+  </tr>
+  <tr>
+   <td>contactPoint
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:contactPoint
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Address</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>locn:address</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>adminUnitL1
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:adminUnitL1
+   </td>
+  </tr>
+  <tr>
+   <td>adminUnitL2
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:adminUnitL2
+   </td>
+  </tr>
+  <tr>
+   <td>adminUnitL3
+   </td>
+   <td>Властивість
+   </td>
+   <td>Відсутня
+   </td>
+  </tr>
+  <tr>
+   <td>postName
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:postName
+   </td>
+  </tr>
+  <tr>
+   <td>thoroughfare
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:thoroughfare
+   </td>
+  </tr>
+  <tr>
+   <td>locatorDesignator
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:locatorDesignator
+   </td>
+  </tr>
+  <tr>
+   <td>locatorName
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:locatorName
+   </td>
+  </tr>
+  <tr>
+   <td>postCode
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:postCode
+   </td>
+  </tr>
+  <tr>
+   <td>poBox
+   </td>
+   <td>Властивість
+   </td>
+   <td>locn:poBox
+   </td>
+  </tr>
+  <tr>
+   <td><strong>ContactPoint</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:ContactPoint</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:name
+   </td>
+  </tr>
+  <tr>
+   <td>hasEmail
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:email
+   </td>
+  </tr>
+  <tr>
+   <td>hasTelephone
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:telephone
+   </td>
+  </tr>
+  <tr>
+   <td>openingHours
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:openingHours
+   </td>
+  </tr>
+  <tr>
+   <td>availabilityRestriction
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:hoursAvailable
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OpeningHoursSpecification</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:OpeningHoursSpecification</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:description
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OnlineAccount</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:OnlineAccount</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>accountName
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:accountName
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Head</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td>headOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:headOf
+   </td>
+  </tr>
+  <tr>
+   <td>holds
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:holds
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Post</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>СonstituentDocument</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>references
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:references
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 4 — Прив’язка моделі даних ресурсу Posts до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Employee</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Person</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td>gender
+   </td>
+   <td>Властивість  
+   </td>
+   <td>foaf:gender
+   </td>
+  </tr>
+  <tr>
+   <td>homepage
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:homepage
+   </td>
+  </tr>
+  <tr>
+   <td>phone
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:phone
+   </td>
+  </tr>
+  <tr>
+   <td>mbox
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:mbox
+   </td>
+  </tr>
+  <tr>
+   <td>openingHours
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:openingHours
+   </td>
+  </tr>
+  <tr>
+   <td>holds
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:holds
+   </td>
+  </tr>
+  <tr>
+   <td>account
+   </td>
+   <td>Асоціація
+   </td>
+   <td>foaf:account
+   </td>
+  </tr>
+  <tr>
+   <td>img
+   </td>
+   <td>Асоціація
+   </td>
+   <td>foaf:img
+   </td>
+  </tr>
+  <tr>
+   <td>availabilityRestriction
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:hoursAvailable
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Post</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td>postIn
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:postIn
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicOrganization</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OrganizationalUnit</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:OrganizationalUnit</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Image</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Image</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>schema
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OnlineAccount</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:OnlineAccount</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>page
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:page
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OpeningHoursSpecification</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:OpeningHoursSpecification</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:description
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">2. Інформація про організаційну структуру розпорядника інформації</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, <a href="https://schema.org/">Schema</a>, <a href="https://www.w3.org/TR/swbp-skos-core-spec/">SKOS</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 5 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 6 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Post</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:notation
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td>value
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:value
+   </td>
+  </tr>
+  <tr>
+   <td>postIn
+   </td>
+   <td>Асоціація
+   </td>
+   <td>org:postIn
+   </td>
+  </tr>
+  <tr>
+   <td><strong>OrganizationalUnit</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>OrganizationalUnit</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">3. Нормативи, що затверджуються та підлягають оприлюдненню відповідно до закону розпорядником інформації</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="http://dublincore.org/">Dublin Core Terms</a>, <a href="http://xmlns.com/foaf/spec/">FOAF</a>, <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, <a href="http://docs.oasis-open.org/legaldocml/akn-core/v1.0/os/part1-vocabulary/akn-core-v1.0-os-part1-vocabulary.html">Akoma Ntoso</a>, <a href="https://schema.org/">Schema</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 7 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Dublin Core Terms
+   </td>
+   <td>dcterms
+   </td>
+   <td><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Akoma Ntoso
+   </td>
+   <td>legaldocml
+   </td>
+   <td><a href="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/">http://docs.oasis-open.org/legaldocml/ns/akn/3.0/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 8 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Normative</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>validFrom
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:valid
+   </td>
+  </tr>
+  <tr>
+   <td>validThrough
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:validThrough
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>isPartOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:isPartOf
+   </td>
+  </tr>
+  <tr>
+   <td><strong>LegalAct</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>dateAccepted
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:dateAccepted
+   </td>
+  </tr>
+  <tr>
+   <td>number
+   </td>
+   <td>Властивість
+   </td>
+   <td>legaldocml:docNumber
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:publisher
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Agent</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicOrganization</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">4. Звіти, в тому числі щодо задоволення запитів на інформацію</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="http://dublincore.org/">Dublin Core Terms</a>, <a href="http://xmlns.com/foaf/spec/">FOAF</a>, <a href="https://schema.org/">Schema</a>, <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 9 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Dublin Core Terms
+   </td>
+   <td>dcterms
+   </td>
+   <td><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 10 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Report</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>dateAccepted
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:dateAccepted
+   </td>
+  </tr>
+  <tr>
+   <td>issued
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:issued
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>creator
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:creator
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:publisher
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Creator</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Agent</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicOrganization</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">5. Інформація про систему обліку, види інформації, яка зберігається розпорядником</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використаний основний словник <a href="http://schema.org/">Schema</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 11 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 12 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicInformationRegistrationSystem</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:SoftwareApplication</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:name
+   </td>
+  </tr>
+  <tr>
+   <td>softwareVersion
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:softwareVersion
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>disposer
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:Organization
+   </td>
+  </tr>
+  <tr>
+   <td>maintainer
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:Organization або schema:Person
+   </td>
+  </tr>
+  <tr>
+   <td>informationTypes
+   </td>
+   <td>Відсутній
+   </td>
+   <td>Відсутня
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Disposer</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>legalName
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:legalName
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Maintainer</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:Organization </strong>або<strong> schema:Person</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Name
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:Name
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">6. Реєстр наборів даних, що перебувають у володінні розпорядника інформації</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використаний основний словник <a href="https://www.w3.org/TR/vocab-dcat/">Data Catalog Vocabulary</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 13 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>DCAT
+   </td>
+   <td>dcat
+   </td>
+   <td><a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a> 
+   </td>
+  </tr>
+  <tr>
+   <td>Dublin Core Terms
+   </td>
+   <td>dct
+   </td>
+   <td><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>vCard
+   </td>
+   <td>vcard
+   </td>
+   <td><a href="http://www.w3.org/2006/vcard/ns#">http://www.w3.org/2006/vcard/ns#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 14 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Dataset</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcat:Dataset</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dct:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dct:title
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Властивість
+   </td>
+   <td>dct:description
+   </td>
+  </tr>
+  <tr>
+   <td>accrualPeriodicity
+   </td>
+   <td>Властивість
+   </td>
+   <td>dct:accrualPeriodicity
+   </td>
+  </tr>
+  <tr>
+   <td>keyword
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcat:keyword
+   </td>
+  </tr>
+  <tr>
+   <td>purpose
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:purpose
+   </td>
+  </tr>
+  <tr>
+   <td>landingPage
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcat:landingPage
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dct:publisher
+   </td>
+  </tr>
+  <tr>
+   <td>distribution
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcat:distribution
+   </td>
+  </tr>
+  <tr>
+   <td>contactPoint
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcat:contactPoint
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Kind</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>vcard:Kind</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>fn
+   </td>
+   <td>Властивість
+   </td>
+   <td>vcard:fn
+   </td>
+  </tr>
+  <tr>
+   <td>hasEmail
+   </td>
+   <td>Властивість
+   </td>
+   <td>vcard:hasEmail
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Distribution</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcat:Distribution</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>format
+   </td>
+   <td>Властивість
+   </td>
+   <td>dct:format
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">7. Нормативно-правові акти, акти індивідуальної дії (крім внутрішньоорганізаційних), прийняті розпорядником інформації, проекти нормативно-правових актів, проекти рішень, що підлягають обговоренню, інформація, визначена законодавством про засади регуляторної політики</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="http://dublincore.org/">Dublin Core Terms</a>, <a href="http://xmlns.com/foaf/spec/">FOAF</a>, <a href="https://schema.org/">Schema</a>, <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, <a href="https://www.w3.org/TR/swbp-skos-core-spec/">SKOS</a>, <a href="http://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html">Akoma Ntoso</a>, <a href="https://www.w3.org/TR/vocab-adms/">ADMS</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 15 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Dublin Core Terms
+   </td>
+   <td>dcterms
+   </td>
+   <td><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Akoma Ntoso
+   </td>
+   <td>legaldocml
+   </td>
+   <td><a href="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/">http://docs.oasis-open.org/legaldocml/ns/akn/3.0/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>ADMS
+   </td>
+   <td>adms
+   </td>
+   <td><a href="http://www.w3.org/ns/adms#">http://www.w3.org/ns/adms#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 16 — Прив’язка моделі даних ресурсу LegalActs до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>LegalAct</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>dateAccepted
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:dateAccepted
+   </td>
+  </tr>
+  <tr>
+   <td>number
+   </td>
+   <td>Властивість
+   </td>
+   <td>legaldocml:docNumber
+   </td>
+  </tr>
+  <tr>
+   <td>issued
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:issued
+   </td>
+  </tr>
+  <tr>
+   <td>valid
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:valid
+   </td>
+  </tr>
+  <tr>
+   <td>status
+   </td>
+   <td>Властивість
+   </td>
+   <td>adms:status
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:publisher
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Agent</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicOrganization</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Registration</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>number
+   </td>
+   <td>Властивість
+   </td>
+   <td>legaldocml:docNumber
+   </td>
+  </tr>
+  <tr>
+   <td>registrationDate
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:issued
+   </td>
+  </tr>
+  <tr>
+   <td>references
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:references
+   </td>
+  </tr>
+  <tr>
+   <td>creator
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:creator
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Creator</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Creator</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Registrator</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 17 — Прив’язка моделі даних ресурсу Projects до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Project</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>registrationDate
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:created
+   </td>
+  </tr>
+  <tr>
+   <td>issued
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:issued
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>creator
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:creator
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:publisher
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Creator</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Agent</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td><strong>PublicOrganization</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Annex</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>url
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>references
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:references
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">8. Переліки регуляторних актів із зазначенням дати набрання чинності, строку проведення базового, повторного та періодичного відстеження їх результативності та інформації про місце їх оприлюднення</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="http://dublincore.org/">Dublin Core Terms</a>, <a href="http://xmlns.com/foaf/spec/">FOAF</a>, <a href="https://schema.org/">Schema</a>, <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, <a href="https://www.w3.org/TR/swbp-skos-core-spec/">SKOS</a>. З детальним описом моделі даних можна ознайомитись за <a href="https://rods.readthedocs.io/uk_UA/latest/chapter-4.html">посиланням</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 18 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Dublin Core Terms
+   </td>
+   <td>dcterms
+   </td>
+   <td><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 19 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>RegulatoryAct</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>accessURL
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>bibliographicCitation
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:bibliographicCitation
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>isVersionOf
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:isVersionOf
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>valid
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:valid
+   </td>
+  </tr>
+  <tr>
+   <td>isPartOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:isPartOf
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:publisher
+   </td>
+  </tr>
+  <tr>
+   <td><strong>LegalAct</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>created
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:created
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Agent</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td><strong>RegulatoryAgency</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Evaluation</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:Event</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>endDate
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:endDate
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>about
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:about
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Report</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>accessURL
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>bibliographicCitation
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:bibliographicCitation
+   </td>
+  </tr>
+  <tr>
+   <td>dateAccepted
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:dateAccepted
+   </td>
+  </tr>
+  <tr>
+   <td>references
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:references
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">9. План діяльності з підготовки проектів регуляторних актів із зазначенням видів і назв проектів, цілей їх прийняття, строків підготовки проектів, найменування органів та підрозділів, відповідальних за розроблення проектів регуляторних актів, дату їх внесення на розгляд регуляторного органу та посилання на місце оприлюднення</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури набору й синтаксичної прив’язки використані основні словники: <a href="http://dublincore.org/">Dublin Core Terms</a>, <a href="http://xmlns.com/foaf/spec/">FOAF</a>, <a href="https://schema.org/">Schema</a>, <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, <a href="https://www.w3.org/TR/swbp-skos-core-spec/">SKOS</a>. З детальним описом моделі даних можна ознайомитись за <a href="https://rods.readthedocs.io/uk_UA/latest/chapter-4.html">посиланням</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 20 — Префікси і простори імен основних словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва словника</strong>
+   </td>
+   <td><strong>Префікс</strong>
+   </td>
+   <td><strong>Простір імен</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Dublin Core Terms
+   </td>
+   <td>dcterms
+   </td>
+   <td><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>FOAF
+   </td>
+   <td>foaf
+   </td>
+   <td><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Schema
+   </td>
+   <td>schema
+   </td>
+   <td><a href="http://schema.org/">http://schema.org/</a>
+   </td>
+  </tr>
+  <tr>
+   <td>The Organization Ontology
+   </td>
+   <td>org
+   </td>
+   <td><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SKOS
+   </td>
+   <td>skos
+   </td>
+   <td><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>
+   </td>
+  </tr>
+</table>
+
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 21 — Прив’язка моделі даних до існуючого синтаксису словників</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Термін</strong>
+   </td>
+   <td><strong>Тип в UML</strong>
+   </td>
+   <td><strong>Прив’язка синтаксису</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Project</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>accessURL
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:url
+   </td>
+  </tr>
+  <tr>
+   <td>bibliographicCitation
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:bibliographicCitation
+   </td>
+  </tr>
+  <tr>
+   <td>dateSubmitted
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:dateSubmitted
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>objective
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:purpose
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>type
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:type
+   </td>
+  </tr>
+  <tr>
+   <td>creator
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:creator
+   </td>
+  </tr>
+  <tr>
+   <td>isPartOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:isPartOf
+   </td>
+  </tr>
+  <tr>
+   <td>isVersionOf
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:isVersionOf
+   </td>
+  </tr>
+  <tr>
+   <td><strong>LegalAct</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td>publisher
+   </td>
+   <td>Асоціація
+   </td>
+   <td>dcterms:publisher
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Development</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>schema:Event</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>endDate
+   </td>
+   <td>Властивість
+   </td>
+   <td>schema:endDate
+   </td>
+  </tr>
+  <tr>
+   <td>about
+   </td>
+   <td>Асоціація
+   </td>
+   <td>schema:about
+   </td>
+  </tr>
+  <tr>
+   <td><strong>RegulatoryAct</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:BibliographicResource</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Властивість
+   </td>
+   <td>dcterms:title
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Creator</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Publisher</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>dcterms:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Agent</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>foaf:Agent</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>name
+   </td>
+   <td>Властивість
+   </td>
+   <td>foaf:name
+   </td>
+  </tr>
+  <tr>
+   <td><strong>RegulatoryAgency</strong>
+   </td>
+   <td><strong>Клас</strong>
+   </td>
+   <td><strong>org:Organization</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>identifier
+   </td>
+   <td>Властивість
+   </td>
+   <td>org:identifier
+   </td>
+  </tr>
+  <tr>
+   <td>prefLabel
+   </td>
+   <td>Властивість
+   </td>
+   <td>skos:prefLabel
+   </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-bottom: 15px; margin-top: 50px;">10. Інформація щодо отриманого майна (обладнання, програмного забезпечення) в рамках міжнародної технічної допомоги</h2>
+
+
+<p style="margin-bottom: 25px">Для розробки структури таблиці Assets використана модель даних <a href="http://standard.open-contracting.org/latest/en/">Open Contracting Data Standard (v.1.1.)</a>. Об’єкти та властивості в таблиці 22. подані відповідно до <a href="http://standard.open-contracting.org/latest/en/getting_started/building_blocks/">Open Contracting Data Standard Building Blocks</a>.</p>
+
+<p style="margin-bottom: 10px; text-align: center;"><strong>Таблиця 22 — Відповідність колонок таблиці Assets й об’єктів і властивостей Open Contracting Data Standard Building Blocks</strong></p>
+
+
+<table style="margin-bottom: 30px">
+  <tr>
+   <td><strong>Назва колонки</strong>
+   </td>
+   <td><strong>Об’єкт(-и)</strong>
+   </td>
+   <td><strong>Властивість</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>id
+   </td>
+   <td>Item
+   </td>
+   <td>id
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Item
+   </td>
+   <td>title
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Item
+   </td>
+   <td>description
+   </td>
+  </tr>
+  <tr>
+   <td>quantity
+   </td>
+   <td>Item
+   </td>
+   <td>description
+   </td>
+  </tr>
+  <tr>
+   <td>unitName
+   </td>
+   <td>Item.unit
+   </td>
+   <td>name
+   </td>
+  </tr>
+  <tr>
+   <td>valueAmount
+   </td>
+   <td>Item.unit.value
+   </td>
+   <td>amount
+   </td>
+  </tr>
+  <tr>
+   <td>valueCurrency
+   </td>
+   <td>Item.unit.value
+   </td>
+   <td>currency
+   </td>
+  </tr>
+  <tr>
+   <td>projectID
+   </td>
+   <td>Document
+   </td>
+   <td>id
+   </td>
+  </tr>
+  <tr>
+   <td>projectTitle
+   </td>
+   <td>Document
+   </td>
+   <td>title
+   </td>
+  </tr>
+  <tr>
+   <td>recipientID
+   </td>
+   <td>Party.identifier
+   </td>
+   <td>id
+   </td>
+  </tr>
+  <tr>
+   <td>recipientName
+   </td>
+   <td>Party
+   </td>
+   <td>name
+   </td>
+  </tr>
+  <tr>
+   <td>implementerID
+   </td>
+   <td>Party.identifier
+   </td>
+   <td>id
+   </td>
+  </tr>
+  <tr>
+   <td>implementerName
+   </td>
+   <td>Party
+   </td>
+   <td>name
+   </td>
+  </tr>
+  <tr>
+   <td>actID
+   </td>
+   <td>Document
+   </td>
+   <td>id
+   </td>
+  </tr>
+  <tr>
+   <td>actDate
+   </td>
+   <td>Document
+   </td>
+   <td>date
+   </td>
+  </tr>
+</table>
