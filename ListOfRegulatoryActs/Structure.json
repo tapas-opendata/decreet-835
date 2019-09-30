@@ -64,7 +64,7 @@
         "required": true
       },
       {
-        "name": "legalActІdentifier",
+        "name": "legalActIdentifier",
         "titles": "Номер НПА, яким ухвалено регуляторний акт",
         "dc:description": "Номер нормативно-правового акта, яким ухвалено регуляторний акт (без знаку №). Наприклад: 1719.",
         "datatype": "string",
